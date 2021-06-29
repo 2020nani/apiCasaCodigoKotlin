@@ -4,8 +4,9 @@ micronaut:
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/casa-codigo
-    driverClassName: org.h2.Driver
+    driverClassName: org.postgresql.Driver
     username: postgres
     password: postgres
     dialect: POSTGRES
+#gera a tabela automaticamente banco de dados
 jpa.default.properties.hibernate.hbm2ddl.auto: update
