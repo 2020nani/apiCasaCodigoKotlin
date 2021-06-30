@@ -40,14 +40,14 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    implementation("io.micronaut.xml:micronaut-jackson-xml")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.h2database:h2")
     implementation("io.micronaut:micronaut-validation")
-    //banco de dados
+
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("org.postgresql:postgresql:42.2.18")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-
 
 }
 

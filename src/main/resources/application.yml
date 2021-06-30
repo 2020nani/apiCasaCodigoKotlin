@@ -1,6 +1,7 @@
 micronaut:
   application:
     name: nossaCasaCodigo
+    consulta-endereco-jost: joia
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/casa-codigo
