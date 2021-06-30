@@ -6,5 +6,6 @@ import java.util.*
 
 @Repository
 interface AutorRepository: JpaRepository<Autor, Long> {
-        override fun findById(id: Long): Optional<Autor>
+        //override fun findById(id: Long): Optional<Autor>
+        fun findByEmail(email: String): Optional<Autor>
 }

@@ -9,6 +9,7 @@ import io.micronaut.http.uri.UriBuilder
 import io.micronaut.validation.Validated
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpResponse.created
+import javax.transaction.Transactional
 import javax.validation.Valid
 
 @Validated
@@ -16,6 +17,7 @@ import javax.validation.Valid
 class CadastraAutorController(val autorRepository: AutorRepository) {
 
     @Post
+    @Transactional
     fun cadastraAutores(@Body @Valid novoautorform: NovoAutorForm): HttpResponse<Any> {
 
         val autor: Autor = novoautorform.converte()
