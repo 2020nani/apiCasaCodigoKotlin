@@ -4,8 +4,8 @@ import br.com.zup.cadastraautores.Autor
 
 class AutoresDto(autor: Autor) {
 
-    val nomeAutor = autor.nome
-    val emailAutor = autor.email
-    val descricaoAutor = autor.descricao
+    val nome = autor.nome
+    val email = autor.email
+    val descricao = autor.descricao
 
 }

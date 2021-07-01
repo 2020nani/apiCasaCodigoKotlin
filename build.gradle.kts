@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.noarg") version "1.4.32"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.4.32"
 }
-
+//aciona transaction
 allOpen {
     annotation("io.micronaut.http.annotation.Controller")
 }
@@ -31,7 +31,6 @@ micronaut {
 
 dependencies {
     kapt("io.micronaut.data:micronaut-data-processor")
-    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator:3.0.0")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
@@ -44,10 +43,20 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.h2database:h2")
     implementation("io.micronaut:micronaut-validation")
-
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("org.hibernate:hibernate-validator:6.1.6.Final")
     implementation("org.postgresql:postgresql:42.2.18")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    // testes
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+    testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.mockito:mockito-core:3.8.0")
+    testImplementation("io.micronaut.test:micronaut-test-junit5:2.3.2")
+    testImplementation("com.h2database:h2")
+
 
 }
 

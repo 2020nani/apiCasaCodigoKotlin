@@ -15,7 +15,7 @@ class Autor(
     @field:Email(message = "Digite um email valido") var email: String,
     @field:NotBlank(message = "Campo descricao tem que ser preenchido")
     @field:Size(max = 400, message = "Nao pode ser maios que 400 caracteres") var descricao: String,
-    @field:NotNull @field:OneToOne(cascade = arrayOf(CascadeType.PERSIST)) val endereco: Endereco
+    @field:OneToOne(cascade = arrayOf(CascadeType.PERSIST)) val endereco: Endereco?
 
     )  {
     fun atualiza(novoAutorForm: NovoAutorForm): Autor {
