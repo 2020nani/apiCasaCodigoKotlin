@@ -23,11 +23,12 @@ class CadastraAutorController(
     @Transactional
     fun cadastraAutores(@Body @Valid novoautorform: NovoAutorForm): HttpResponse<Any> {
 
-        val enderecoform = enderecoClient.buscaEndereco(novoautorform.cep)
+        val enderecoform = enderecoClient.buscaEndereco(novoautorform.cep).body()
 
-        if(enderecoform.body == null) return badRequest("Erro ao buscar endereco")
+        if(enderecoform == null || enderecoform.bairro.equals("x")) return badRequest("Erro ao buscar endereco")
 
-        val autor: Autor = novoautorform.converte(enderecoform.body()!!)
+
+        val autor: Autor = novoautorform.converte(enderecoform)
         autorRepository.save(autor)
         val Uri = UriBuilder.of("autores/{id}")
             .expand(mutableMapOf(Pair("id", autor.id)))
